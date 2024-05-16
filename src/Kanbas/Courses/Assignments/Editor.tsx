@@ -4,10 +4,12 @@ export default function AssignmentEditor() {
       <div id="wd-assignments-editor">
         <label htmlFor="wd-name">Assignment Name </label>
         <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
+       
         <textarea id="wd-description">
           The assignment is available online Submit a link to the landing page of
         </textarea>
         <br />
+        
         <table>
             <tr>
                 <br/>
@@ -74,26 +76,51 @@ export default function AssignmentEditor() {
             <label htmlFor="wd-student-annotation">Student Annotation</label><br/>
 
             <input type="checkbox" name="check-genre" id="wd-file-upload"/>
-            <label htmlFor="wd-file-upload">File Upload</label>
+            <label htmlFor="wd-file-upload">File Uploads</label>
             
         </tr>
+
         <tr>
             <br/>
-          </tr>
+        </tr>
 
-
-
-
-
-          #TODO
         <tr>
-            <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
-            
-            <input type="date"
-            id="wd-text-fields-dob"
-            value="2000-01-21"/><br/>
+            <td>
+                <label htmlFor="wd-assign-to">Assign to </label>
+                <input id="wd-assign-to" value="Everyone" />
+            </td>
+        </tr>
 
-          </tr>
+        <tr>
+            <br/>
+        </tr>
+
+        <tr>
+            <label htmlFor="wd-due-date">Due </label>
+            
+            <input type="date" id="wd-due-date"
+            value="2024-05-13"/><br/>
+
+        </tr>
+
+        <tr>
+            <br/>
+        </tr>
+
+        <tr>
+            <td>
+                <label htmlFor="wd-available-from">Available from </label><br />
+                <input type="date" id="wd-available-from"
+                value="2024-05-06"/>
+            </td>
+
+            <td>
+                <label htmlFor="wd-available-until">Until </label><br />
+                <input type="date" id="wd-available-until"
+                value="2024-05-20"/>
+            </td>
+
+        </tr>
         </table>
       </div>
   );}
