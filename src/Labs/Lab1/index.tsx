@@ -185,7 +185,7 @@ export default function Lab1() {
                     <input id="wd-text-fields-username" placeholder="jdoe" /> <br />
 
                     <label htmlFor="wd-text-fields-password">Password:</label>
-                    <input type="password" id="wd-text-fields-password" value="123@#$asd" /><br />
+                    <input type="password" id="wd-text-fields-password" defaultValue="123@#$asd" /><br />
 
                     <label htmlFor="wd-text-fields-first-name">First name:</label>
                     <input type="text" id="wd-text-fields-first-name" title="John" /> <br />
@@ -194,7 +194,7 @@ export default function Lab1() {
                     <input type="text" id="wd-text-fields-last-name" placeholder="Doe"
                     value="Wonderland" title="The last name" />
 
-                    {/* copy rest of form elements here  */}
+                 
                 </form>
             
                 <h5>Text boxes</h5>

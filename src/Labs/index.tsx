@@ -9,7 +9,9 @@ import Lab3 from "./Lab3";
 export default function Labs() {
   return (
     <div>
-      <h4>Sarah Gallant</h4>
+      <h4>Sarah Gallant <br/> 
+      Summer Full 2024</h4>
+      
       <h1>Labs</h1>
 
       

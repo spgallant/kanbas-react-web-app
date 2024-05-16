@@ -173,7 +173,7 @@ export default function Dashboard() {
               <p className="wd-dashboard-course-title">
                 Methods in development using Python
               </p>
-              <a href="#/Kanbas/Courses/1245/Home"> Python </a>
+              <a href="#/Kanbas/Courses/1245/Home"> Go </a>
             </div>
           </div>
         </div>
