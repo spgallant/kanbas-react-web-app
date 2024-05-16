@@ -9,7 +9,10 @@ import Lab3 from "./Lab3";
 export default function Labs() {
   return (
     <div>
+      <h4>Sarah Gallant</h4>
       <h1>Labs</h1>
+
+      
       <TOC />
       <Routes>
         <Route path="/" element={<Navigate to="Lab1" />} />
@@ -17,6 +20,7 @@ export default function Labs() {
         <Route path="Lab2" element={<Lab2 />} />
         <Route path="Lab3" element={<Lab3 />} />
       </Routes>
+
     </div>
   );
 }
