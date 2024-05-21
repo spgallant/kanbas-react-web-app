@@ -3,7 +3,29 @@ import React from 'react';
 export default function Modules() {
     return (
       <div>
-        {/* Collapse All button, View Progress button, etc. */}
+        <div>
+        <tr>
+       
+            <td >
+              <button className="wd-bttn-collapse-all">Collapse All</button>
+            </td>
+            <td >
+              <button className="wd-bttn-view-progress">View Progress</button>
+            </td>
+            <td >
+              <select className="wd-publish-dropdown">
+                <option selected value="publish-all">Publish All</option>
+                <option value="modul1">Module 1</option>
+                <option value="module2">Module 2</option>
+                <option value="module3">Module 3</option>
+            </select>
+            </td>
+            <td >
+              <button className="wd-bttn-add-module">+ Module</button>
+            </td>
+          </tr>        
+        </div>
+  
         <ul id="wd-modules">
           <li className="wd-module">
             <div className="wd-title">Week 1, Lecture 1 - Course Introduction, Syllabus, Agenda</div>
