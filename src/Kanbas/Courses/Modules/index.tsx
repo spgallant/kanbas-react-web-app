@@ -15,7 +15,7 @@ export default function Modules() {
             <td >
               <select className="wd-publish-dropdown">
                 <option selected value="publish-all">Publish All</option>
-                <option value="modul1">Module 1</option>
+                <option value="module1">Module 1</option>
                 <option value="module2">Module 2</option>
                 <option value="module3">Module 3</option>
             </select>
