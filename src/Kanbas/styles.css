@@ -74,3 +74,16 @@ border-left: 4px solid #28a745;
 .wd-fg-gray {
     color: darkgray;
 }
+
+.wd-grid-col-main-content {
+    width: 100%;
+    float: left;
+}
+.text-area-height{
+    height: 300px;
+    
+}
+
+.narrow-element {
+    width: 100%;
+}
