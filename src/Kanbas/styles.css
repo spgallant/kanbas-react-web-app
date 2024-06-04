@@ -53,3 +53,24 @@ border-left: 4px solid #28a745;
     text-decoration: none;
     font-size: 25px;
 }
+
+.bg-solid-border {
+    border: solid;
+}
+
+.bg-round-corner {
+    border-radius: 50px;
+}
+
+.wd-border-gray {
+    border-color: darkgray;
+}
+
+
+.wd-fg-color-green {
+    color: #27AE60;
+}
+
+.wd-fg-gray {
+    color: darkgray;
+}
