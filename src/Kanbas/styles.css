@@ -18,6 +18,11 @@ background-color: #c7cdd1 !important;
 border: 1px solid gray;
 }
   
+/* Set the spacing between 30 and 40 pixels
+.wd-dashboard-course {
+    margin-bottom: 35px;  
+}
+*/
 
 
 
@@ -87,3 +92,5 @@ border-left: 4px solid #28a745;
 .narrow-element {
     width: 100%;
 }
+
+

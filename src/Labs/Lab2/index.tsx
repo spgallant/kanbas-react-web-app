@@ -17,7 +17,7 @@ export default function Lab2() {
           using the style attribute
         </p>
 
-        <div id="wd-css-id-selectors">
+        <div id="wd-css-id-selectors" className="mb-3">
           <h3>ID selectors</h3>
           <p id="wd-id-selector-1">
             Instead of changing the look and feel of all the 
@@ -30,7 +30,7 @@ export default function Lab2() {
         </div>
 
 
-        <div id="wd-css-class-selectors">
+        <div id="wd-css-class-selectors" className="mb-3">
           <h3>Class selectors</h3>
           <p className="wd-class-selector">
             Instead of using IDs to refer to elements, you can use an element's CLASS attribute
@@ -41,7 +41,7 @@ export default function Lab2() {
         </div>
 
 
-        <div id="wd-css-document-structure">
+        <div id="wd-css-document-structure" className="mb-3">
           <div className="wd-selector-1">
             <h3>Document structure selectors</h3>
             <div className="wd-selector-2">
@@ -63,7 +63,7 @@ export default function Lab2() {
         </div>
 
 
-        <div id="wd-css-colors">
+        <div id="wd-css-colors" className="mb-3">
           <h2>Colors</h2>
           <h3 className="wd-fg-color-blue">Foreground color</h3>
           <p className="wd-fg-color-red">
@@ -72,7 +72,7 @@ export default function Lab2() {
           </p>
         </div>
 
-        <div id="wd-css-background-colors">
+        <div id="wd-css-background-colors" className="mb-3">
           <h3 className="wd-bg-color-blue wd-fg-color-white">Background color</h3>
           <p className="wd-bg-color-red wd-fg-color-black">
             This background of this paragraph is red but
@@ -83,7 +83,7 @@ export default function Lab2() {
         </div>
 
 
-        <div id="wd-css-borders">
+        <div id="wd-css-borders" className="mb-3">
           <h2>Borders</h2>
           <p className="wd-border-fat wd-border-red wd-border-solid">
             Solid fat red border</p>
@@ -92,7 +92,7 @@ export default function Lab2() {
         </div>
 
 
-        <div id="wd-css-paddings">
+        <div id="wd-css-paddings" className="mb-3">
           <h2>Padding</h2>
           <div className="wd-padded-top-left wd-border-fat 
               wd-border-red wd-border-solid 
@@ -111,7 +111,7 @@ export default function Lab2() {
           </div>
         </div>
 
-        <div id="wd-css-margins">
+        <div id="wd-css-margins" className="mb-3">
           <h2>Margins</h2>
           <div
             className="wd-margin-bottom 
@@ -140,7 +140,7 @@ export default function Lab2() {
           </div>
         </div>
 
-        <div id="wd-css-borders">
+        <div id="wd-css-borders" className="mb-3">
           <h3>Rounded corners</h3>
           <p className="wd-rounded-corners-top wd-border-thin 
             wd-border-blue wd-border-solid wd-padding-fat">
@@ -163,7 +163,7 @@ export default function Lab2() {
           </p>
         </div>
 
-        <div id="wd-css-dimensions">
+        <div id="wd-css-dimensions" className="mb-3">
           <h2>Dimension</h2>
           <div>
             <div className="wd-dimension-portrait wd-bg-color-yellow">
@@ -178,7 +178,7 @@ export default function Lab2() {
           </div>
         </div>
 
-        <div id="wd-css-position-relative">
+        <div id="wd-css-position-relative" className="mb-3">
         <h2>Relative</h2>
         <div className="wd-bg-color-gray">
           <div className="wd-bg-color-yellow 
@@ -195,7 +195,7 @@ export default function Lab2() {
         </div>
 
 
-        <div id="wd-css-position-absolute">
+        <div id="wd-css-position-absolute" className="mb-5">
           <h2>Absolute position</h2>
           <div className="wd-pos-relative">
             <div className="wd-pos-absolute-10-10 
@@ -208,11 +208,11 @@ export default function Lab2() {
             <div className="wd-pos-absolute-120-20 
                 wd-bg-color-red wd-dimension-square">
               Square</div>
-          </div><br /><br /><br /><br /><br /><br /><br />
+          </div><br /><br /><br /><br /><br />
         </div>
 
 
-        <div id="wd-css-position-fixed">
+        <div id="wd-css-position-fixed" className="mb-3">
           <h2>Fixed position</h2>
           Checkout the blue square that says "Fixed position" stuck all the way on the right and half 
           way down the page. It doesn't scroll with the rest of the page. Its position is "Fixed".
@@ -220,8 +220,8 @@ export default function Lab2() {
             wd-dimension-square wd-bg-color-blue 
             wd-fg-color-white">
             Fixed position
-          </div>
-        </div>
+          </div><br />
+        </div><br />
 
 
         <div id="wd-z-index">
@@ -240,11 +240,11 @@ export default function Lab2() {
                 wd-bg-color-red wd-dimension-square">
               Square
             </div>
-          </div><br /><br /><br /><br /><br /><br /><br />
+          </div><br /><br /><br /><br /><br /><br />
         </div>
 
 
-        <div id="wd-float-divs">
+        <div id="wd-float-divs" className="mb-5">
           <h2>Float</h2>
           <div>
             <div className="wd-float-left wd-dimension-portrait wd-bg-color-yellow">
@@ -260,7 +260,7 @@ export default function Lab2() {
           
         </div>
 
-        <div id="wd-css-grid-layout">
+        <div id="wd-css-grid-layout" className="mb-3">
           <div id="wd-css-left-right-layout">
             <h2>Grid layout</h2>
             <div className="wd-grid-row">
@@ -298,17 +298,17 @@ export default function Lab2() {
               <p>This is the right sidebar</p>
             </div>
           </div>
-          <br /><br /><br /><br /><br />
-        </div>
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div><br /><br />
 
 
-        <div id="wd-css-flex">
+        <div id="wd-css-flex" className="mb-3">
           <h2>Flex</h2>
           <div className="wd-flex-row-container">
             <div className="wd-bg-color-yellow wd-width-75px">Column 1</div>
             <div className="wd-bg-color-blue">Column 2</div>
             <div className="wd-bg-color-red wd-flex-grow-1">Column 3</div>
-          </div> <br />
+          </div> 
         </div>
 
         
@@ -316,7 +316,7 @@ export default function Lab2() {
       
 
         <h2>Bootstrap</h2>
-          <div id="wd-bs-grid-system">
+          <div id="wd-bs-grid-system" className="mb-3">
             <h2>Grid system</h2>
             <div className="row">
               <div className="col bg-danger text-white">
@@ -344,11 +344,11 @@ export default function Lab2() {
               <div className="col-2 bg-info">
                 <h3>Sidebar</h3>
               </div>
-            </div>  <br />
+            </div> 
           </div>
 
 
-          <div id="wd-bs-responsive-grids">
+          <div id="wd-bs-responsive-grids" className="mb-3">
             <h2>Responsive grid system</h2>
             <div className="row">
               <div className="col-12 col-md-6 col-xl-3 
@@ -367,11 +367,11 @@ export default function Lab2() {
                               bg-success text-white">
                 <h3>Column D</h3>
               </div>
-            </div> <br />
+            </div> 
           </div>
 
 
-          <div id="wd-bs-responsive-dramatic">
+          <div id="wd-bs-responsive-dramatic" className="mb-3">
             <h2>Responsive grid system</h2>
             <div className="row">
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 
@@ -422,14 +422,14 @@ export default function Lab2() {
                               bg-success text-white">
                 <h4>12</h4>
               </div>
-            </div> <br />
+            </div> 
           </div>
 
 
           <ScreenSizeLabel />
 
 
-          <div id="wd-css-styling-tables">
+          <div id="wd-css-styling-tables" className="mb-3">
             <h2>Tables</h2>
             <table className="table">
               <thead>
@@ -443,11 +443,11 @@ export default function Lab2() {
               <tfoot>
                 <tr className="table-success"><td colSpan={3}>Average</td><td>90</td></tr>
               </tfoot>
-            </table><br />
+            </table>
           </div>
 
 
-          <div id="wd-css-responsive-tables">
+          <div id="wd-css-responsive-tables" className="mb-3">
             <h2>Responsive tables</h2>
             <div className="table-responsive">
               <table className="table">
@@ -465,11 +465,11 @@ export default function Lab2() {
                   </tr>
                 </tbody>
               </table>
-            </div><br />
+            </div>
           </div>
 
 
-          <div id="wd-css-styling-lists">
+          <div id="wd-css-styling-lists" className="mb-3">
             <h2>Favorite movies</h2>
             <ul className="list-group">
               <li className="list-group-item active">Aliens</li>
@@ -477,11 +477,11 @@ export default function Lab2() {
               <li className="list-group-item">Blade Runner</li>
               <li className="list-group-item">Lord of the Ring</li>
               <li className="list-group-item disabled">Star Wars</li>
-            </ul><br />
+            </ul>
           </div>
 
 
-          <div id="wd-css-hyperlink-list">
+          <div id="wd-css-hyperlink-list" className="mb-3">
             <h3>Favorite books</h3>
             <div className="list-group">
               <a href="https://en.wikipedia.org/wiki/Dune_(novel)" 
@@ -499,11 +499,11 @@ export default function Lab2() {
               <a href="https://en.wikipedia.org/wiki/Ender%27s_Game" 
                 className="list-group-item list-group-item-action disabled">
                 Ender's Game</a>
-            </div><br />
+            </div>
           </div>
 
 
-          <div id="wd-css-styling-forms">
+          <div id="wd-css-styling-forms" className="mb-3">
             <h2>Forms</h2>
             <div className="mb-3">
               <label htmlFor="input1" className="form-label">
@@ -519,18 +519,18 @@ export default function Lab2() {
           </div>
 
           </div>
-            <div id="wd-css-styling-dropdowns">
+            <div id="wd-css-styling-dropdowns" className="mb-3">
             <h3>Dropdowns</h3>
             <select className="form-select">
               <option selected>Open this select menu</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
-            </select><br />
+            </select>
           </div>
 
 
-          <div id="wd-css-styling-switches">
+          <div id="wd-css-styling-switches" className="mb-3">
             <h3>Switches</h3>
             <div className="form-check form-switch">
               <input className="form-check-input" type="checkbox" 
@@ -559,21 +559,21 @@ export default function Lab2() {
               <label className="form-check-label" htmlFor="switch4">
                 Disabled checked switch checkbox input
               </label>
-            </div><br />
+            </div>
           </div>
 
 
-          <div id="wd-css-styling-range-and-sliders">
+          <div id="wd-css-styling-range-and-sliders" className="mb-3">
             <h3>Range</h3>
             <label htmlFor="range1" className="form-label">
               Example range
             </label>
             <input type="range" className="form-range"
               min="0" max="5" step="0.5" id="range1" />
-          </div><br />
+          </div>
 
 
-          <div id="wd-css-styling-addons">
+          <div id="wd-css-styling-addons" className="mb-3">
             <h3>Addons</h3>
             <div className="input-group mb-3">
               <span className="input-group-text">$</span>
@@ -584,12 +584,12 @@ export default function Lab2() {
               <input type="text" className="form-control" />
               <span className="input-group-text">$</span>
               <span className="input-group-text">0.00</span>
-            </div><br />
+            </div>
           </div>
 
 
 
-          <div id="wd-css-responsive-forms-1">
+          <div id="wd-css-responsive-forms-1" className="mb-3">
             <h3>Responsive forms</h3>
             <div className="mb-3 row">
               <label htmlFor="email1"
@@ -625,7 +625,7 @@ export default function Lab2() {
 
 
 
-          <div id="wd-css-responsive-forms-2">
+          <div id="wd-css-responsive-forms-2" className="mb-5">
             <h3>Responsive forms</h3>
             <form>
               <div className="row mb-3">
@@ -673,11 +673,11 @@ export default function Lab2() {
               <button type="submit" className="btn btn-primary">
                 Sign in </button>
             </form>
-          </div><br />
+          </div>
 
 
 
-          <div id="wd-css-navigating-with-tabs">
+          <div id="wd-css-navigating-with-tabs" className="mb-5">
             <h2>Tabs</h2>
             <ul className="nav nav-tabs">
               <li className="nav-item">
@@ -693,16 +693,16 @@ export default function Lab2() {
                   <a className="nav-link disabled" href="#">Disabled</a>
               </li>
             </ul>
-          </div><br />
+          </div>
 
 
 
-          <div id="wd-css-navigating-with-cards">
+          <div id="wd-css-navigating-with-cards" className="mb-5">
             <h2>Cards</h2>
             <div className="card"
-                style={{ width: "18rem" }}>
+                style={{ width: "18rem" }} >
               <img src="images/stacked.jpg"
-                  className="card-img-top" />
+                  className="card-img-top"  />
               <div className="card-body">
                 <h5 className="card-title">
                     Stacking Starship
