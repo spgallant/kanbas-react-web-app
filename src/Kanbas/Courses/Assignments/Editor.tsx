@@ -7,7 +7,7 @@ export default function AssignmentEditor() {
         <div className="mb-4">
             <label htmlFor="wd-name" className="form-label"> Assignment Name </label>
         
-            <input id="wd-name" className="form-control " defaultValue="A1" />
+            <input id="wd-name" className="form-control form-control-lg" defaultValue="A1" />
         </div>
 
         <div className="mb-4">
@@ -15,9 +15,9 @@ export default function AssignmentEditor() {
             The assignment is available online 
                     
             Submit a link to the landing page of your Web application running on Netlify.
-            The landing page should include 
-            the following: Your full name and section Links to each of the lab assignments
-            Link to the Kanbas application Links to all relevant source code repositories
+            The landing page should include the following: - Your full name and section 
+            - Links to each of the lab assignments - Link to the Kanbas application 
+            - Links to all relevant source code repositories
             The Kanbas application should include a link to navigate back to the landing page.
             </textarea>
         </div>
@@ -55,7 +55,7 @@ export default function AssignmentEditor() {
             </div>
             <div className="col-8">
                 <select id="wd-display-grade-as" className="form-select">
-                    <option selected value="PERCENTAGE">Perecentage</option>
+                    <option selected value="PERCENTAGE">PERCENTAGE</option>
                     <option value="NUMBER">NUMBER</option>
                 </select>
             </div>
@@ -122,16 +122,16 @@ export default function AssignmentEditor() {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="wd-due-date" className="fw-bold mb-1">Due </label><br/>
-                            <input type="date" id="wd-due-date" className="form-control" value="2024-05-13"/><br/>
+                            <input type="datetime-local" id="wd-due-date" className="form-control" defaultValue="2024-05-13T23:59"/><br/>
                         </div>
                         <div className="row mb-3">
                             <div className="col">
                                 <label htmlFor="wd-available-from" className="fw-bold mb-1">Available from </label><br />
-                                <input type="date" id="wd-available-from" className="form-control" value="2024-05-06"/>
+                                <input type="datetime-local" id="wd-available-from" className="form-control" defaultValue="2024-05-06T00:00"/>
                             </div>
                             <div className="col"> 
                                 <label htmlFor="wd-available-until" className="fw-bold mb-1">Until </label><br />
-                                <input type="date" id="wd-available-until" className="form-control" value="2024-05-20"/>
+                                <input type="datetime-local" id="wd-available-until" className="form-control" defaultValue="2024-05-20T23:59"/>
                             </div>
                         </div>
                     </div>   

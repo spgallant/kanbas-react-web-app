@@ -1,15 +1,20 @@
 import ButtonControls from "./ButtonControls";
 import StudentTable from "./StudentTable";
+import SearchControls from "./SearchContols";
+import FilterButton from "./FilterButton";
 
 
 export default function Grades() {
     return (
-        <div>
+        <div className="ms-5">
             <br />
             <ButtonControls/>
-            <br /> <br /> <br />
+       
+            <SearchControls/>
+            <FilterButton/>
+     
             <StudentTable/>
-            <br />
+          
         </div>
     );
 
