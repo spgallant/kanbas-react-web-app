@@ -4,7 +4,7 @@ import { BsPlus } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 import { BsGripVertical } from 'react-icons/bs';
 
-export default function ModuleControlButtons() {
+export default function AssignmentStartIcons() {
   return (
     <div >
       <BsGripVertical className="fs-3 me-3" />

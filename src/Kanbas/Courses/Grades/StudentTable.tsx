@@ -4,8 +4,8 @@ export default function StudentTable() {
     return (
 
 
-        <div id="wd-grade-table" >
-            <div className="table-responsive">
+        <div id="wd-grade-table" className="table-responsive" >
+       
        
                 <table className="table table-striped table-bordered">
                     <thead>
@@ -15,7 +15,7 @@ export default function StudentTable() {
                             <th className="text-center">A2 HTML Out of 100</th>
                             <th className="text-center">A3 CSS Out of 100</th>
                             <th className="text-center">A4 BOOTSTRAP Out of 100</th>
-
+      
                             
                         </tr>
                     </thead>
@@ -184,7 +184,7 @@ export default function StudentTable() {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+         
         </div>
 
     );
