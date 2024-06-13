@@ -14,7 +14,9 @@ export default function House() {
       owners: ["Alice", "Bob"],
     };
 
-    
+
+    console.log(House);
+
     return (
       <div id="wd-house">
         <h4>House</h4>
