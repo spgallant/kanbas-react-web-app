@@ -21,7 +21,10 @@ export default function Dashboard() {
             {courses.map((course) => (
 
               <div key={course._id} className="wd-dashboard-course col m-3"  style={{ width: "300px" }}>
-                <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none" >
+                <Link 
+                  to={`/Kanbas/Courses/${course._id}/Home`} 
+                  className="text-decoration-none" 
+                >
                   <div className="card rounded-3 overflow-hidden">
                     <img src={`/images/${course.imageName}`} height="{160}" alt={course.name} />
                     <div className="card-body">
@@ -32,7 +35,7 @@ export default function Dashboard() {
                       <p className="wd-dashboard-course-title card-text" style={{maxHeight: 53, overflow: "hidden"}}>
                         {course.description}
                       </p>
-                      <Link to={'/Kanbas/Courses/${course._id}/Home'}  className="btn btn-primary"> Go </Link>
+                      <Link to={`/Kanbas/Courses/${course._id}/Home`}  className="btn btn-primary"> Go </Link>
                     </div>
                   </div>
                 </Link>
