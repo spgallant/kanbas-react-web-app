@@ -9,6 +9,7 @@ import * as db from "../Database";
 export default function Dashboard() {
     const courses = db.courses;
 
+    console.log(courses);
 
     return (
       <div id="wd-dashboard">
