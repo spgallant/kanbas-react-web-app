@@ -5,7 +5,8 @@
       "course": "RS101",
       "startDate": "2024-05-06T00:00",
       "dueDate": "2024-05-13T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Explore the fundamentals of rocket propulsion, analyzing different propulsion systems and their efficiencies."
   },
   {
       "_id": "A102",
@@ -13,7 +14,8 @@
       "course": "RS101",
       "startDate": "2024-05-13T00:00",
       "dueDate": "2024-05-20T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Conduct an in-depth analysis of combustion processes within propulsion systems, focusing on thermodynamic principles."
   },
   {
       "_id": "A103",
@@ -21,7 +23,8 @@
       "course": "RS101",
       "startDate": "2024-05-20T00:00",
       "dueDate": "2024-05-27T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Design and optimize a rocket nozzle, considering factors such as material selection and flow dynamics."
   },
   {
       "_id": "A201",
@@ -29,7 +32,8 @@
       "course": "RS102",
       "startDate": "2024-05-06T00:00",
       "dueDate": "2024-05-13T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Test your understanding of aerodynamic principles and their application in aerospace engineering through a series of challenging questions."
   },
   {
       "_id": "A202",
@@ -37,7 +41,8 @@
       "course": "RS102",
       "startDate": "2024-05-13T00:00",
       "dueDate": "2024-05-20T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Perform a detailed analysis of fluid flow around various aerospace structures, using computational fluid dynamics (CFD) tools."
   },
   {
       "_id": "A203",
@@ -45,7 +50,8 @@
       "course": "RS102",
       "startDate": "2024-05-20T00:00",
       "dueDate": "2024-05-27T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Analyze the thermal effects on aerospace materials and structures during high-speed flight, using heat transfer principles."
   },
   {
       "_id": "A301",
@@ -53,7 +59,8 @@
       "course": "RS103",
       "startDate": "2024-05-06T00:00",
       "dueDate": "2024-05-13T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Tackle the complexities of structural design for aerospace applications, focusing on strength, stability, and material science."
   },
   {
       "_id": "A302",
@@ -61,7 +68,8 @@
       "course": "RS103",
       "startDate": "2024-05-13T00:00",
       "dueDate": "2024-05-20T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Calculate orbital trajectories and parameters for different types of space missions, applying principles of astrodynamics."
   },
   {
       "_id": "A303",
@@ -69,6 +77,7 @@
       "course": "RS103",
       "startDate": "2024-05-20T00:00",
       "dueDate": "2024-05-27T23:59",
-      "points": 100
+      "points": 100,
+      "description": "Demonstrate your knowledge of systems engineering by solving problems related to the integration and management of aerospace systems."
   }
 ]

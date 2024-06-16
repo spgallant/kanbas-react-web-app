@@ -6,14 +6,15 @@ import { FaRegEdit } from "react-icons/fa";
 import AssignmentStartIcons from "./AssignmentStartIcons"
 import AssignmentHeaderIcons from "./AssignmentHeaderIcons";
 
+
 import {useParams} from "react-router";
 import * as db from "../../Database";
-
+import { Link } from "react-router-dom";
 
 export default function Assignments() {
     const {cid} = useParams();
     const assignments = db.assignments;
-    const courses = db.courses;
+   
 
 
     // Name: formatDate
@@ -77,10 +78,15 @@ export default function Assignments() {
                                     <div className="d-flex align-items-center flex-grow-1">
                                         <AssignmentStartIcons />
                                         <div id="assignment-text" >
-                                            <a className="wd-assignment-link hidden-hyperlink" 
-                                                href="#/Kanbas/Courses/1234/Assignments/123">
+
+
+                                            <Link 
+                                                to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} 
+                                                className="wd-assignment-link hidden-hyperlink">
                                                 {assignment.title}
-                                            </a>
+                                            </Link>
+
+                                        
                                             <br 
                                             /> <span className="text-danger" >Multiple Modules </span> | <strong>Not available until</strong> {formatDate(assignment.startDate)} | <br
                                             /><strong>Due</strong> {formatDate(assignment.dueDate)} | {assignment.points} pts         
