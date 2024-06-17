@@ -1,192 +1,74 @@
-
+import {useParams} from "react-router";
+import * as db from "../../Database";
 
 export default function StudentTable() {
+    const {cid, aid} = useParams();
+    const assignments = db.assignments;
+    const users = db.users;
+    const enrollments = db.enrollments;
+    const grades = db.grades;
+
+
+    // Assignments for course; variable for re-use
+    const courseAssignments = assignments.filter(assignment => assignment.course === cid);
+    
+    // Users for course; variable for re-use
+    const userEnrollments = enrollments.filter(enrollment => enrollment.course === cid);
+
+    const mappedUsers = userEnrollments.map(enrollment => users.find(user => user._id === enrollment.user));
+
+
     return (
 
 
         <div id="wd-grade-table" className="table-responsive" >
-       
+            
        
                 <table className="table table-striped table-bordered">
+          
                     <thead>
+                        
                         <tr className="text-secondary">
                             <th className="text-center">Student Name</th>
-                            <th className="text-center">A1 SETUP Out of 100</th>
-                            <th className="text-center">A2 HTML Out of 100</th>
-                            <th className="text-center">A3 CSS Out of 100</th>
-                            <th className="text-center">A4 BOOTSTRAP Out of 100</th>
-      
-                            
+                            {assignments
+                                .filter(assignment => assignment.course === cid)
+                                .map(assignment => (
+                                    <th key={assignment._id} className="text-center">
+                                        {assignment.title} Out of 100
+                                    </th>   
+                            ))}
                         </tr>
                     </thead>
+
                     <tbody>
-                        <tr>
-                            <td className="text-danger ">Jane Adams</td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" value="96.67" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" value="95.18" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" value="66.22" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
+
+                            {mappedUsers.map(user => (
+                            <tr key={user?._id}>
+                                <td className="text-danger ">
+                                {user ? `${user.firstName} ${user.lastName}` : 'Unknown User'}
+                                 
+                                </td>
+
+                              
+                                {/* {courseAssignments.map(assignment => (
+
+                                    
+                                <td key={assignment._id} className="text-center">
+                                    {grades.find(grade => grade.assignment === assignment._id && grade.student === user?._id) 
+                                        ? (
+                                        <>
+                                            {grades.find(grade => grade.assignment === assignment._id && grade.student === user?._id).grade}
+                                            <span className="input-group-text">%</span>
+                                        </>
+                                    ) : (
+                                        '-'
+                                    )}
+                                </td>
+                            ))} */}
                         </tr>
-                        <tr>
-                            <td className="text-danger">Christina Allen</td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="text-danger">Samreen Ansari</td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="text-danger">Han Bao</td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" value="88.03" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" value="98.99" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="text-danger">Mahi Sai Srinivas</td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" value="96.67" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" value="98.37" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="text-danger">Siran Cao</td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div className="input-group">
-                                    <input type="number" className="form-control" defaultValue="100" />
-                                    <span className="input-group-text">%</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-         
+                    ))}
+                </tbody>
+            </table>
         </div>
-
     );
-
 }
