@@ -17,6 +17,12 @@ export default function StudentTable() {
 
     const mappedUsers = userEnrollments.map(enrollment => users.find(user => user._id === enrollment.user));
 
+    // Grades for student for assignment (format as fn to take inputs at correct nest level)
+    const getGrades = (userId: String, assignmentId: String) => {
+        const singleGrade = grades.find(grade => grade.student === userId && grade.assignment === assignmentId);
+        return singleGrade ? `${singleGrade.grade}%` : "N/A";
+    };
+
 
     return (
 
@@ -50,21 +56,17 @@ export default function StudentTable() {
                                 </td>
 
                               
-                                {/* {courseAssignments.map(assignment => (
 
-                                    
-                                <td key={assignment._id} className="text-center">
-                                    {grades.find(grade => grade.assignment === assignment._id && grade.student === user?._id) 
-                                        ? (
-                                        <>
-                                            {grades.find(grade => grade.assignment === assignment._id && grade.student === user?._id).grade}
-                                            <span className="input-group-text">%</span>
-                                        </>
-                                    ) : (
-                                        '-'
-                                    )}
-                                </td>
-                            ))} */}
+
+                                {courseAssignments.map(assignment => (
+                                    <td key={assignment._id} className="text-center">
+                                        {user ? getGrades(user._id, assignment._id) : "-"}
+                                    </td>
+                                ))}
+                                
+
+
+                             
                         </tr>
                     ))}
                 </tbody>
