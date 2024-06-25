@@ -18,13 +18,13 @@ export default function ArrayStateVariable() {
 
       <button className="btn btn-success btn-md me-1 mb-2" onClick={addElement}>Add Element</button>
 
-      <ul className="list-unstyled">
+      <ul className="list-group">
         {array.map((item, index) => (
-          <li key={index} className="d-flex align-items-center  border p-2">
+          <li key={index} className="list-group-item">
             <span className="fw-bold me-3" style={{ fontSize: '1.5rem' }}>{item}</span>
             <button onClick={() => deleteElement(index)}
                     id="wd-delete-element-click"
-                    className="btn btn-danger btn-md ms-auto">
+                    className="btn btn-danger btn-md ms-auto float-end">
               Delete</button>
           </li>
         ))}
