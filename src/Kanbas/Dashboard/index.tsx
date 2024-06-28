@@ -127,7 +127,7 @@ export default function Dashboard(
 
               <div key={course._id} className="wd-dashboard-course col m-3"  style={{ width: "300px" }}>
                 <Link 
-                  to={`/Kanbas/Courses/${course._id}/Home`} 
+                  to={`/Kanbas/Courses/${course._id}`} 
                   className="text-decoration-none" 
                 >
                   <div className="card rounded-3 overflow-hidden">
@@ -141,7 +141,7 @@ export default function Dashboard(
                         {course.description}
                       </p>
 
-                      <Link to={`/Kanbas/Courses/${course._id}/Home`}  className="btn btn-primary"> Go </Link>
+                      <Link to={`/Kanbas/Courses/${course._id}`}  className="btn btn-primary"> Go </Link>
 
 
                       <button onClick={(event) => {
