@@ -14,10 +14,11 @@ import Grades from "./Grades";
 
 
 
-export default function Courses() {
+export default function Courses({ courses }: { courses: any[]; }) {
 
     const { cid } = useParams();
     const { pathname } = useLocation();
+    // const course = courses.find((course) => course._id === cid);
     const course = courses.find((course) => course._id === cid);
     
 
