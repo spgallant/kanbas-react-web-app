@@ -15,7 +15,7 @@ import { Provider } from "react-redux";
 
 export default function Kanbas() {
 
-    const [courses, setCourses] = useState<any[]>(db.courses);
+    const [courses, setCourses] = useState<any[]>(db.courses); //line to fetch courses
 
     const [course, setCourse] = useState<any>({
       _id: "1234", name: "New Course", number: "New Number",

@@ -1,11 +1,32 @@
 import {useParams} from "react-router";
 import * as db from "../../Database";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import { addAssignment, editAssignment, updateAssignment, deleteAssignment }
+  from "./reducer";
+import { useSelector, useDispatch } from "react-redux";
+
 
 export default function AssignmentEditor() {
     const {cid, aid} = useParams();
-    const assignments = db.assignments;
+    const dispatch = useDispatch();
+    // const assignments = db.assignments; //change me to use state
     // const assignment = db.assignments.find(assignment => assignment._id === aid);
+
+
+    // State w/ default values for new assignment, w/ mutator option
+    const [assignment, setAssignment] = useState({
+        _id:  new Date().getTime().toString(),
+        title: "New Assignment",
+        description: "A new assignment",
+        points: 100,
+        dueDate: "",
+        startDate: "2024-05-06T00:00",
+    });
+
+    // State to manage existing assignments
+    const [assignments, setassignments] = useState<any[]>(db.assignments); 
+  
 
     return (
       <div id="wd-assignments-editor" className="container">

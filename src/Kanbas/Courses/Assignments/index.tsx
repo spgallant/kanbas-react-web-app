@@ -11,11 +11,30 @@ import {useParams} from "react-router";
 import * as db from "../../Database";
 import { Link } from "react-router-dom";
 
+import { useState } from "react";
+import { addAssignment, deleteAssignment, updateAssignment, editAssignment }
+  from "./reducer";
+import { useSelector, useDispatch } from "react-redux";
+
+
 export default function Assignments() {
     const {cid} = useParams();
-    const assignments = db.assignments;
-   
+    
+    // const assignments = db.assignments;
+    //const [assignments, setassignments] = useState<any[]>(db.assignments); 
 
+    const [assignmentName, setassignmentName] = useState("");
+    const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+    const dispatch = useDispatch();
+
+    const [assignment, setAssignment] = useState({
+        _id:  new Date().getTime().toString(),
+        title: "New Assignment",
+        description: "A new assignment",
+        points: 100,
+        dueDate: "",
+        startDate: "2024-05-06T00:00",
+    });
 
     // Name: formatDate
     // Purpose: Translate dates from datetime into specific assignment written format
@@ -40,7 +59,14 @@ export default function Assignments() {
                 <div id="wd-assignments">
         
                     <br />
-                    <AssignmentsControls/> 
+                    <AssignmentsControls
+                        setassignmentName={setassignmentName}
+                        assignmentName={assignmentName}
+                        addAssignment={() => {
+                            dispatch(addAssignment({ ...assignment, title: assignmentName, course: cid }));
+                            setassignmentName("");
+                        }}
+                        /> 
                     <br />
                 
         
@@ -71,8 +97,8 @@ export default function Assignments() {
                             <ul id="wd-assignment-list" className="list-group rounded-o  gr-left-border" >
 
                                 {assignments
-                                .filter((assignment) => assignment.course === cid)
-                                .map(assignment => (                                
+                                .filter((assignment: any) => assignment.course === cid)
+                                .map((assignment: any) => (                                
                                 <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex flex-row align-items-center ">
                                     
                                     <div className="d-flex align-items-center flex-grow-1">
