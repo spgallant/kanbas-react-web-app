@@ -24,8 +24,11 @@ export default function Assignments() {
     //const [assignments, setassignments] = useState<any[]>(db.assignments); 
 
     const [assignmentName, setassignmentName] = useState("");
+    
     const { assignments } = useSelector((state: any) => state.assignmentsReducer);
     const dispatch = useDispatch();
+
+    
 
     const [assignment, setAssignment] = useState({
         _id:  new Date().getTime().toString(),
@@ -120,7 +123,11 @@ export default function Assignments() {
                                     </div>
         
                                     <div className="d-flex justify-content-end align-items-center" >
-                                        <LessonControlButtons />
+                                        <LessonControlButtons
+                                            assignmentName={assignment.title}
+                                            deleteAssignment={() => dispatch(deleteAssignment(assignment._id))}
+                                        
+                                            />
                                     </div>
                                 </li>
                                 ))}
