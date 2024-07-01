@@ -22,6 +22,7 @@ export default function AssignmentEditor() {
         points: 100,
         dueDate: "",
         startDate: "2024-05-06T00:00",
+        course: cid,
     });
 
 

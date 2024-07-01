@@ -107,46 +107,42 @@ export default function Assignments() {
                                     console.log("Ai Assignment ID: ", assignment._id);
                                     console.log("Ai Assignment Name: ", assignment.title);
                                     return(                                
-                                <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex flex-row align-items-center ">
-                                    
-                                    <div className="d-flex align-items-center flex-grow-1">
-                                        <AssignmentStartIcons />
-                                        <div id="assignment-text" >
+                                        <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex flex-row align-items-center ">
+                                            
+                                            <div className="d-flex align-items-center flex-grow-1">
+                                                <AssignmentStartIcons />
+                                                <div id="assignment-text" >
 
 
-                                            <Link 
-                                                to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} 
-                                                className="wd-assignment-link hidden-hyperlink">
-                                                {assignment.title}
-                                            </Link>
+                                                    <Link 
+                                                        to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} 
+                                                        className="wd-assignment-link hidden-hyperlink">
+                                                        {assignment.title}
+                                                    </Link>
 
-                                        
-                                            <br 
-                                            /> <span className="text-danger" >Multiple Modules </span> | <strong>Not available until</strong> {formatDate(assignment.startDate)} | <br
-                                            /><strong>Due</strong> {formatDate(assignment.dueDate)} | {assignment.points} pts         
-                                        </div>    
-                                    </div>
-        
-                                    <div className="d-flex justify-content-end align-items-center" >
-                                        <LessonControlButtons
-                                            assignmentName={assignment.title}
-                                            // deleteAssignment={() => dispatch(deleteAssignment(assignment._id))}
-                                            openDeleteModal={() => setSelectedAssignment(assignment)}
-                                        
-                                            />
-                                    </div>
-                                </li>
+                                                
+                                                    <br 
+                                                    /> <span className="text-danger" >Multiple Modules </span> | <strong>Not available until</strong> {formatDate(assignment.startDate)} | <br
+                                                    /><strong>Due</strong> {formatDate(assignment.dueDate)} | {assignment.points} pts         
+                                                </div>    
+                                            </div>
+                
+                                            <div className="d-flex justify-content-end align-items-center" >
+                                                <LessonControlButtons
+                                                    assignmentName={assignment.title}
+                                                    // deleteAssignment={() => dispatch(deleteAssignment(assignment._id))}
+                                                    openDeleteModal={() => setSelectedAssignment(assignment)}
+                                                
+                                                    />
+                                            </div>
+                                        </li>
                                     )
-})}
-        
-        
-                            
-        
-        
+                                })}       
                                 
                             </ul>
                         </li>
                     </ul>
+
                     <AssignmentDeleter
                         dialogTitle="Delete Assignment"
                         assignmentName={selectedAssignment ? selectedAssignment.title : ''}
