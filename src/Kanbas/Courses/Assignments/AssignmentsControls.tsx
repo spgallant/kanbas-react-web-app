@@ -28,10 +28,6 @@ export default function AssignmentsControls(
 
 
             <div id="wd-button-container" >
-                {/* <button id="wd-add-assignment-btn" className="btn btn-lg btn-danger me-1 float-end">
-                    <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-                    Assignment
-                </button> */}
 
                 <Link 
                     to={`/Kanbas/Courses/${cid}/Assignments/New`} 

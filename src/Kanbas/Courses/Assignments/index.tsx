@@ -32,6 +32,7 @@ export default function Assignments() {
 
     const [selectedAssignment, setSelectedAssignment] = useState<any>(null); //manage state of selected assignment for delete
     
+    // defaults for a new assignment
     const [assignment, setAssignment] = useState({
         _id:  new Date().getTime().toString(),
         title: "New Assignment",
@@ -64,6 +65,7 @@ export default function Assignments() {
                 <div id="wd-assignments">
         
                     <br />
+                    {/* Add Group and Add Assignment buttons, w/ addAssignment functionality */}
                     <AssignmentsControls
                         setassignmentName={setassignmentName}
                         assignmentName={assignmentName}
@@ -104,8 +106,8 @@ export default function Assignments() {
                                 {assignments
                                 .filter((assignment: any) => assignment.course === cid)
                                 .map((assignment: any) => {
-                                    console.log("Ai Assignment ID: ", assignment._id);
-                                    console.log("Ai Assignment Name: ", assignment.title);
+                                    console.log("Assignment ID: ", assignment._id);
+                                    console.log("Assignment Name: ", assignment.title);
                                     return(                                
                                         <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex flex-row align-items-center ">
                                             
@@ -127,10 +129,10 @@ export default function Assignments() {
                                                 </div>    
                                             </div>
                 
+                                            {/* includes assignment delete w/ set for selected assignment for deletion */}
                                             <div className="d-flex justify-content-end align-items-center" >
                                                 <LessonControlButtons
                                                     assignmentName={assignment.title}
-                                                    // deleteAssignment={() => dispatch(deleteAssignment(assignment._id))}
                                                     openDeleteModal={() => setSelectedAssignment(assignment)}
                                                 
                                                     />
@@ -143,12 +145,12 @@ export default function Assignments() {
                         </li>
                     </ul>
 
+                    {/* details for modal dialog with check for selected assignment to delete as trigger */}
                     <AssignmentDeleter
                         dialogTitle="Delete Assignment"
                         assignmentName={selectedAssignment ? selectedAssignment.title : ''}
                         deleteAssignment={() => {
                             if (selectedAssignment) {
-                                console.log(`Deleting assignment with ID: ${selectedAssignment._id} and Name: ${selectedAssignment.title}`);
                                 dispatch(deleteAssignment(selectedAssignment._id));
                                 setSelectedAssignment(null);
                             }

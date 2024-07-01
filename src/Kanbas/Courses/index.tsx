@@ -18,7 +18,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
 
     const { cid } = useParams();
     const { pathname } = useLocation();
-    // const course = courses.find((course) => course._id === cid);
+   
     const course = courses.find((course) => course._id === cid);
     
 
@@ -26,6 +26,8 @@ export default function Courses({ courses }: { courses: any[]; }) {
 
     console.log("CID:", cid);
     console.log("Course:", course);
+
+    
 
     return (
       <div id="wd-courses">

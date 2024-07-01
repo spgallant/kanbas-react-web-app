@@ -11,27 +11,19 @@ export default function LessonControlButtons(
     {assignmentName: string; openDeleteModal: () => void;}) {
 
 
-    console.log("LCB Assignment Name: ", assignmentName);
-
 
   return (
     <div className="float-end">
       
+      
       <FaTrash 
-        className="text-danger me-2 mb-1"
-        id="wd-delete-assignment-btn"
-        data-bs-toggle="modal" 
-        data-bs-target="#wd-delete-assignment-dialog"
-        onClick={openDeleteModal}
-        // onClick={deleteAssignment}
-        
-        />
+        className="text-danger me-2 mb-1" 
+        id="wd-delete-assignment-btn" 
+        data-bs-toggle="modal"  // format is modal dialog
+        data-bs-target="#wd-delete-assignment-dialog" //target is id of modal dialog div
+        onClick={openDeleteModal} // on click call open to delete modal
+      />
 
-        {/* <AssignmentDeleter
-          dialogTitle="Delete Assignment"
-          assignmentName={assignmentName}
-          deleteAssignment={deleteAssignment}
-        /> */}
 
       <GreenCheckmark />
       <IoEllipsisVertical className="fs-4" />

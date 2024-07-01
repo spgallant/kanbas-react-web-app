@@ -6,8 +6,8 @@ import { useSelector, useDispatch } from "react-redux"; // Import Redux hooks
 
 export default function AssignmentEditor() {
     const { cid, aid } = useParams(); // Extract parameters from URL
-    const navigate = useNavigate(); // Get dispatch function from Redux
-    const dispatch = useDispatch();
+    const navigate = useNavigate(); 
+    const dispatch = useDispatch(); // Get dispatch function from Redux
     const assignments = useSelector((state: any) => state.assignmentsReducer.assignments);  // Fetch assignments from Redux store
 
 

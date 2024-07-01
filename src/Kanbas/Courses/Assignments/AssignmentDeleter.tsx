@@ -2,8 +2,6 @@
 export default function AssignmentDeleter({ dialogTitle, assignmentName, deleteAssignment }:
     { dialogTitle: string; assignmentName: string; deleteAssignment: () => void; }) {
 
-      console.log(`Assignment Passed: ${assignmentName}`);
-
       const handleDelete = () => {
         console.log(`Deleting assignment: ${assignmentName}`);
         deleteAssignment();
