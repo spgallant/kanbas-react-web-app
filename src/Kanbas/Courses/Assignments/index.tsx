@@ -16,6 +16,8 @@ import { addAssignment, deleteAssignment, updateAssignment, editAssignment }
   from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 
+import AssignmentDeleter from "./AssignmentDeleter";
+
 
 export default function Assignments() {
     const {cid} = useParams();
@@ -28,8 +30,8 @@ export default function Assignments() {
     const { assignments } = useSelector((state: any) => state.assignmentsReducer);
     const dispatch = useDispatch();
 
+    const [selectedAssignment, setSelectedAssignment] = useState<any>(null); //manage state of selected assignment for delete
     
-
     const [assignment, setAssignment] = useState({
         _id:  new Date().getTime().toString(),
         title: "New Assignment",
@@ -101,7 +103,10 @@ export default function Assignments() {
 
                                 {assignments
                                 .filter((assignment: any) => assignment.course === cid)
-                                .map((assignment: any) => (                                
+                                .map((assignment: any) => {
+                                    console.log("Ai Assignment ID: ", assignment._id);
+                                    console.log("Ai Assignment Name: ", assignment.title);
+                                    return(                                
                                 <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex flex-row align-items-center ">
                                     
                                     <div className="d-flex align-items-center flex-grow-1">
@@ -125,12 +130,14 @@ export default function Assignments() {
                                     <div className="d-flex justify-content-end align-items-center" >
                                         <LessonControlButtons
                                             assignmentName={assignment.title}
-                                            deleteAssignment={() => dispatch(deleteAssignment(assignment._id))}
+                                            // deleteAssignment={() => dispatch(deleteAssignment(assignment._id))}
+                                            openDeleteModal={() => setSelectedAssignment(assignment)}
                                         
                                             />
                                     </div>
                                 </li>
-                                ))}
+                                    )
+})}
         
         
                             
@@ -140,6 +147,17 @@ export default function Assignments() {
                             </ul>
                         </li>
                     </ul>
+                    <AssignmentDeleter
+                        dialogTitle="Delete Assignment"
+                        assignmentName={selectedAssignment ? selectedAssignment.title : ''}
+                        deleteAssignment={() => {
+                            if (selectedAssignment) {
+                                console.log(`Deleting assignment with ID: ${selectedAssignment._id} and Name: ${selectedAssignment.title}`);
+                                dispatch(deleteAssignment(selectedAssignment._id));
+                                setSelectedAssignment(null);
+                            }
+                        }}
+                    />
              </div>
         );}
         

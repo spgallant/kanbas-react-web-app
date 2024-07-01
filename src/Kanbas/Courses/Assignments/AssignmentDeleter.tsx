@@ -2,8 +2,12 @@
 export default function AssignmentDeleter({ dialogTitle, assignmentName, deleteAssignment }:
     { dialogTitle: string; assignmentName: string; deleteAssignment: () => void; }) {
 
+      console.log(`Assignment Passed: ${assignmentName}`);
 
-
+      const handleDelete = () => {
+        console.log(`Deleting assignment: ${assignmentName}`);
+        deleteAssignment();
+      };
     
       return (
         <div id="wd-delete-assignment-dialog" className="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
@@ -24,7 +28,8 @@ export default function AssignmentDeleter({ dialogTitle, assignmentName, deleteA
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                   No </button>
-                <button onClick={deleteAssignment} type="button" data-bs-dismiss="modal" className="btn btn-success">
+                <button 
+                  onClick={handleDelete} type="button" data-bs-dismiss="modal" className="btn btn-success">
                  Yes </button>
               </div>
 
