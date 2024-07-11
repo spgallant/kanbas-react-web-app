@@ -37,17 +37,40 @@ export const fetchTodos = async () => {
     return response.data;
 };
 
-// delete a todo item
+// delete a todo item (incorrectly w/ get)
 export const removeTodo = async (todo: any) => {
     const response = await axios.get(`${TODOS_API}/${todo.id}/delete`);
     return response.data;
-  };
+};
+
+// delete todo item with delete
+export const deleteTodo = async (todo: any) => {
+    const response = await axios.delete(`${TODOS_API}/${todo.id}`); // no /delete in URL 
+    return response.data;
+};
+  
+
+
   
   
-// create a todo item
+// create a todo item (incorrectly w/ get)
 export const createTodo = async () => {
     const response = await axios.get(`${TODOS_API}/create`);
     return response.data;
-  };
+};
   
 
+// create new item with post
+export const postTodo = async (todo: any) => {
+    const response = await axios.post(`${TODOS_API}`, todo);
+    return response.data; //returns singular new item which can be appended to existing list?
+};
+  
+
+// update an existing item with PUT
+export const updateTodo = async (todo: any) => {
+    const response = await axios.put(`${TODOS_API}/${todo.id}`, todo);
+    return response.data;
+  };
+  
+  
