@@ -5,8 +5,10 @@ import { Routes, Route, Navigate } from "react-router";
 import Courses from "./Courses";
 import "./styles.css";
 
-import * as db from "./Database";
-import { useState } from "react";
+// import * as db from "./Database";
+import * as client from "./Courses/client";
+
+import { useState, useEffect } from "react";
 
 import store from "./store";
 import { Provider } from "react-redux";
@@ -15,7 +17,8 @@ import { Provider } from "react-redux";
 
 export default function Kanbas() {
 
-    const [courses, setCourses] = useState<any[]>(db.courses); //line to fetch courses
+    // const [courses, setCourses] = useState<any[]>(db.courses); //line to fetch courses
+    const [courses, setCourses] = useState<any[]>([]); //change to any instead of local db reference
 
     const [course, setCourse] = useState<any>({
       _id: "1234", name: "New Course", number: "New Number",
@@ -23,15 +26,11 @@ export default function Kanbas() {
       description: "New Description",
     });
 
-    const addNewCourse = () => {
-      setCourses([...courses, { ...course, _id: new Date().getTime().toString() }]);
-    };
 
-    const deleteCourse = (courseId: any) => {
-      setCourses(courses.filter((course) => course._id !== courseId));
-    };
 
-    const updateCourse = () => {
+    //update a course with use of PUT
+    const updateCourse = async () => {
+      await client.updateCourse(course);
       setCourses(
         courses.map((c) => {
           if (c._id === course._id) {
@@ -42,6 +41,55 @@ export default function Kanbas() {
         })
       );
     };
+  
+
+    // delete a course with use of DELETE
+    const deleteCourse = async (courseId: string) => {
+      await client.deleteCourse(courseId);
+      setCourses(courses.filter(
+        (c) => c._id !== courseId));
+    };
+  
+
+    // add a new course with use of POST
+    const addNewCourse = async () => {
+      const newCourse = await client.createCourse(course);
+      setCourses([ ...courses, newCourse ]);
+    };
+  
+    // fetch all courses wtih GET
+    const fetchCourses = async () => {
+      const courses = await client.fetchAllCourses();
+      setCourses(courses);
+    };
+
+    // useEffect to invoke fetchCourses() upon page load
+    useEffect(() => {
+      fetchCourses();
+    }, []);
+  
+
+ 
+
+    // const addNewCourse = () => {
+    //   setCourses([...courses, { ...course, _id: new Date().getTime().toString() }]);
+    // };
+
+    // const deleteCourse = (courseId: any) => {
+    //   setCourses(courses.filter((course) => course._id !== courseId));
+    // };
+
+    // const updateCourse = () => {
+    //   setCourses(
+    //     courses.map((c) => {
+    //       if (c._id === course._id) {
+    //         return course;
+    //       } else {
+    //         return c;
+    //       }
+    //     })
+    //   );
+    // };
 
 
 
