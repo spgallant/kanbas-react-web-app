@@ -96,7 +96,7 @@ export default function WorkingWithArrays() {
                 />
             </div>
            
-            <div className="col-4">
+            <div className="col-4 form-check form-switch">
                 <input 
                     id="wd-update-todo-completed"
                     type="checkbox"
@@ -104,7 +104,7 @@ export default function WorkingWithArrays() {
                     className="form-check-input form-start m-1"
                     onChange={(e) => setTodo({ ...todo, completed: e.target.checked }) }
                 />
-                <label htmlFor="wd-update-todo-completed" >Completed</label>
+                <label htmlFor="wd-update-todo-completed" className="form-check-label">Completed</label>
             </div>
 
             <div className="col-4">
