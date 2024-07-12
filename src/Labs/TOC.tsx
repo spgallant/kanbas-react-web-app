@@ -55,11 +55,11 @@ export default function TOC() {
             Github - Node Server App (spgallant)
           </a>
         </li>
-        {/* <li className="nav-item">
-          <a id="wd-server-render"  href="" className="nav-link">
+        <li className="nav-item">
+          <a id="wd-server-render"  href="https://kanbas-node-server-app-nwyr.onrender.com" className="nav-link">
             Server on Render 
           </a>
-        </li> */}
+        </li>
       </ul>
     );
   }
