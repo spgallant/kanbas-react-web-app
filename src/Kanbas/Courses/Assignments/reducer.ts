@@ -1,14 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { assignments } from "../../Database";
+// import { assignments } from "../../Database"; //remove db reference, since moved to server
 
+// const initialState = {
+//   assignments: assignments,
+// };
+
+//updated state variable for empty assignments since now populting assignments
+//   retrieved from server with findAssignmentsForCourse fn
 const initialState = {
-  assignments: assignments,
+  assignments: [],
 };
 
 const assignmentsSlice = createSlice({
   name: "assignments",
   initialState,
   reducers: {
+
+
+    //add new setAssignments fn to populate the assignments state variable when assignment 
+    //  info arrives from server
+    setAssignments: (state, action) => {
+      state.assignments = action.payload;
+    },
+
 
     addAssignment: (state, { payload: assignment }) => {
         const newAssignment: any = {
@@ -44,7 +58,7 @@ const assignmentsSlice = createSlice({
 
 });
 
-export const { addAssignment, deleteAssignment, updateAssignment, editAssignment } =
+export const { addAssignment, deleteAssignment, updateAssignment, editAssignment, setAssignments} =
   assignmentsSlice.actions;
 
 export default assignmentsSlice.reducer;

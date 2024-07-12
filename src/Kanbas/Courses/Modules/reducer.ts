@@ -1,14 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { modules } from "../../Database";
+// import { modules } from "../../Database"; //remove db reference, since moved to server
 
+// const initialState = {
+//   modules: modules,
+// };
+
+
+//updated state variable for empty modules since now populting modules
+//   retrieved from server with findModulesForCourse fn
 const initialState = {
-  modules: modules,
+  modules: [],
 };
+
 
 const modulesSlice = createSlice({
   name: "modules",
   initialState,
   reducers: {
+
+
+    //add new setModules fn to populate the modules state variable when module 
+    //  info arrives from server
+    setModules: (state, action) => {
+      state.modules = action.payload;
+    },
+
 
     addModule: (state, { payload: module }) => {
       const newModule: any = {
@@ -42,7 +58,7 @@ const modulesSlice = createSlice({
 
 
 
-export const { addModule, deleteModule, updateModule, editModule } =
+export const { addModule, deleteModule, updateModule, editModule, setModules } =
   modulesSlice.actions;
 
 export default modulesSlice.reducer;

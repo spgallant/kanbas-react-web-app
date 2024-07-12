@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ModulesControls from "./ModulesControls";
 import {BsGripVertical} from "react-icons/bs";
 import ModuleControlButtons from './ModuleControlButtons';
 import LessonControlButtons from "./LessonControlButtons";
 
 import {useParams} from "react-router";
-import * as db from "../../Database";
 
-import { addModule, editModule, updateModule, deleteModule }
+// import * as db from "../../Database";
+import * as client from "./client";
+
+import { setModules, addModule, editModule, updateModule, deleteModule }
   from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -18,10 +20,24 @@ export default function Modules() {
     const {cid} = useParams();
     const [moduleName, setModuleName] = useState("");
 
-    // const [modules, setModules] = useState<any[]>(db.modules);
-    
     const { modules } = useSelector((state: any) => state.modulesReducer);
     const dispatch = useDispatch();
+
+    // const [modules, setModules] = useState<any[]>(db.modules);
+
+    // populate modules info for a course w/ findModulesForCourse in client.ts (GET)
+    const fetchModules = async () => {
+      const modules = await client.findModulesForCourse(cid as string);
+      dispatch(setModules(modules));
+    };
+
+    // useEffect allows fetchModules to [pre-]load upon page access
+    useEffect(() => {
+      fetchModules();
+    }, []);
+  
+    
+
 
     
 

@@ -6,13 +6,15 @@ import { FaRegEdit } from "react-icons/fa";
 import AssignmentStartIcons from "./AssignmentStartIcons"
 import AssignmentHeaderIcons from "./AssignmentHeaderIcons";
 
-
-import {useParams} from "react-router";
-import * as db from "../../Database";
 import { Link } from "react-router-dom";
+import {useParams} from "react-router";
 
-import { useState } from "react";
-import { addAssignment, deleteAssignment, updateAssignment, editAssignment }
+// import * as db from "../../Database";
+import * as client from "./client";
+
+
+import { useState, useEffect } from "react";
+import { setAssignments, addAssignment, deleteAssignment, updateAssignment, editAssignment }
   from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -29,6 +31,20 @@ export default function Assignments() {
     
     const { assignments } = useSelector((state: any) => state.assignmentsReducer);
     const dispatch = useDispatch();
+
+    
+    // populate assignments info for a course w/ findAssignmentsForCourse in client.ts (GET)
+    const fetchAssignments = async () => {
+        const assignments = await client.findAssignmentsForCourse(cid as string);
+        dispatch(setAssignments(assignments));
+    };
+
+    // useEffect allows fetchAssignments to [pre-]load upon page access
+    useEffect(() => {
+    fetchAssignments();
+    }, []);
+    
+
 
     const [selectedAssignment, setSelectedAssignment] = useState<any>(null); //manage state of selected assignment for delete
     
