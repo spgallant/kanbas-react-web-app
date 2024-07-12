@@ -1,8 +1,9 @@
 import { useParams } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
-import { addAssignment, updateAssignment } from "./reducer"; // Import actions from reducer
+import { setAssignments, addAssignment, updateAssignment } from "./reducer"; // Import actions from reducer
 import { useSelector, useDispatch } from "react-redux"; // Import Redux hooks
+import * as client from "./client";
 
 export default function AssignmentEditor() {
     const { cid, aid } = useParams(); // Extract parameters from URL
@@ -26,6 +27,7 @@ export default function AssignmentEditor() {
     });
 
 
+
     // Effect to update editedAssignment when existingAssignment changes
     useEffect(() => {
         if (existingAssignment) {
@@ -34,14 +36,16 @@ export default function AssignmentEditor() {
     }, [existingAssignment]);
 
 
+
     // Save button click, saves data and returns to Assignments screen
-    const handleSave = () => {
+    // Has embedded creatAssignment (POST) and...
+    const saveAssignment = async () => {
         if (existingAssignment) {
             dispatch(updateAssignment(editedAssignment));
         } else {
-            dispatch(addAssignment(editedAssignment));
+            const newAssignment = await client.createAssignment(cid as string, editedAssignment);
+            dispatch(addAssignment(newAssignment));
         }
-     
     };
 
    
@@ -246,7 +250,7 @@ export default function AssignmentEditor() {
                     <Link to={`/Kanbas/Courses/${cid}/Assignments`} 
                         id="wd-button-save" 
                         className="btn btn-danger btn-sm me-1"
-                        onClick={handleSave}>
+                        onClick={saveAssignment}>
                         Save
                     </Link>
 

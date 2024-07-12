@@ -25,6 +25,16 @@ export default function Modules() {
 
     // const [modules, setModules] = useState<any[]>(db.modules);
 
+
+    // create module by invoking createModule from client.ts w/ course id and 
+    //    module object (body info)
+    // dispatch new module created in server to addModule reducer fn to add new module  
+    //    to reducer's state variable
+    const createModule = async (module: any) => {
+      const newModule = await client.createModule(cid as string, module);
+      dispatch(addModule(newModule));
+    };  
+
     // populate modules info for a course w/ findModulesForCourse in client.ts (GET)
     const fetchModules = async () => {
       const modules = await client.findModulesForCourse(cid as string);
@@ -36,31 +46,7 @@ export default function Modules() {
       fetchModules();
     }, []);
   
-    
-
-
-    
-
-  //   const addModule = () => {
-  //   setModules([ ...modules, { _id: new Date().getTime().toString(),
-  //                                    name: moduleName, course: cid, lessons: [] } ]);
-  //   setModuleName("");
-  // };
-
-  //   const deleteModule = (moduleId: string) => {
-  //     setModules(modules.filter((m) => m._id !== moduleId));
-  //   };
-
-  //   const editModule = (moduleId: string) => {
-  //     setModules(modules.map((m) => (m._id === moduleId ? { ...m, editing: true } : m)));
-  //   };
-
-  //   const updateModule = (module: any) => {
-  //     setModules(modules.map((m) => (m._id === module._id ? module : m)));
-  //   };
   
-
-
  
 
     return (
@@ -69,7 +55,8 @@ export default function Modules() {
           <ModulesControls setModuleName={setModuleName} moduleName={moduleName} 
             // addModule={addModule}
             addModule={() => {
-              dispatch(addModule({ name: moduleName, course: cid }));
+              // dispatch(addModule({ name: moduleName, course: cid })); //replace with createModule
+              createModule({ name: moduleName, course: cid });
               setModuleName("");
             }}
             /><br/><br/><br/><br/>
