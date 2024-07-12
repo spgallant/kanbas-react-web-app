@@ -25,6 +25,7 @@ export default function Lab5() {
 
         <EnvironmentVariables/>
         <PathParameters/>
+        <QueryParameters/>
         <WorkingWithObjects/>
         <WorkingWithArrays/>
         <HttpClient/>
