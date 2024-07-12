@@ -32,7 +32,13 @@ export default function Assignments() {
     const { assignments } = useSelector((state: any) => state.assignmentsReducer);
     const dispatch = useDispatch();
 
-    
+    // delete assignment by invoking deleteAssignment from client.ts with assignmentId passed
+    const removeAssignment = async (assignmentId: string) => {
+        await client.deleteAssignment(assignmentId);
+        dispatch(deleteAssignment(assignmentId));
+    };   
+
+
     // populate assignments info for a course w/ findAssignmentsForCourse in client.ts (GET)
     const fetchAssignments = async () => {
         const assignments = await client.findAssignmentsForCourse(cid as string);
@@ -167,7 +173,8 @@ export default function Assignments() {
                         assignmentName={selectedAssignment ? selectedAssignment.title : ''}
                         deleteAssignment={() => {
                             if (selectedAssignment) {
-                                dispatch(deleteAssignment(selectedAssignment._id));
+                                // dispatch(deleteAssignment(selectedAssignment._id));
+                                removeAssignment(selectedAssignment._id);
                                 setSelectedAssignment(null);
                             }
                         }}

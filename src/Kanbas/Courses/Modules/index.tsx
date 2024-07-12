@@ -25,6 +25,19 @@ export default function Modules() {
 
     // const [modules, setModules] = useState<any[]>(db.modules);
 
+    // update module by invoking updateModule from client.ts with module info passed
+    const saveModule = async (module: any) => {
+      const status = await client.updateModule(module); //updates server
+      dispatch(updateModule(module)); //updates reducer
+    };
+  
+
+    // delete module by invoking deleteModule from client.ts with moduleId passed
+    const removeModule = async (moduleId: string) => {
+      await client.deleteModule(moduleId);
+      dispatch(deleteModule(moduleId));
+    };  
+
 
     // create module by invoking createModule from client.ts w/ course id and 
     //    module object (body info)
@@ -75,10 +88,12 @@ export default function Modules() {
                     { module.editing && (
                       <input 
                         className="form-control w-50 d-inline-block"
-                        onChange={(e) => dispatch(updateModule({ ...module, name: e.target.value }))}
+                        // onChange={(e) => dispatch(updateModule({ ...module, name: e.target.value }))}
+                        onChange={(e) => saveModule({ ...module, name: e.target.value }) }
                         onKeyDown={(e) => {
                           if (e.key === "Enter") {
-                            dispatch(updateModule({ ...module, editing: false }));
+                            // dispatch(updateModule({ ...module, editing: false }));
+                            saveModule({ ...module, editing: false });
                           }
                         }}
                         value={module.name}
@@ -90,7 +105,9 @@ export default function Modules() {
                       moduleId={module._id}
 
                       deleteModule={(moduleId) => {
-                          dispatch(deleteModule(moduleId));}}
+                          // dispatch(deleteModule(moduleId));
+                          removeModule(moduleId);
+                        }}
                       
                       editModule={(moduleId) => {
                         dispatch(editModule(moduleId));}}

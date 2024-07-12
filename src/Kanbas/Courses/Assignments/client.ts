@@ -5,6 +5,30 @@ const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 // initial find route for courses
 const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 
+// initial find route for an assignment
+const ASSIGNMENTS_API = `${REMOTE_SERVER}/api/assignments`;
+
+
+// update an assignment with PUT
+// embeds assignment id in the path and updates http body w/ info
+export const updateAssignment = async (assignment: any) => {
+    const response = await axios.
+      put(`${ASSIGNMENTS_API}/${assignment._id}`, assignment);
+      
+    return response.data; // status code from server
+};
+
+
+
+// delete an assignment with DELETE
+// sends HTTP DELETE request to server encoding assignment's id path
+export const deleteAssignment = async (assignmentId: string) => {
+  const response = await axios
+    .delete(`${ASSIGNMENTS_API}/${assignmentId}`);
+    
+  return response.data; // respond with status code
+};
+
 
 
 // create new assignment w/ POST

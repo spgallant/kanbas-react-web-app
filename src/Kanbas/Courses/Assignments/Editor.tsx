@@ -41,10 +41,11 @@ export default function AssignmentEditor() {
     // Has embedded creatAssignment (POST) and...
     const saveAssignment = async () => {
         if (existingAssignment) {
-            dispatch(updateAssignment(editedAssignment));
+            const status = await client.updateAssignment(editedAssignment); //update server
+            dispatch(updateAssignment(editedAssignment)); //update reducer
         } else {
-            const newAssignment = await client.createAssignment(cid as string, editedAssignment);
-            dispatch(addAssignment(newAssignment));
+            const newAssignment = await client.createAssignment(cid as string, editedAssignment); //update server
+            dispatch(addAssignment(newAssignment)); //update reducer
         }
     };
 
