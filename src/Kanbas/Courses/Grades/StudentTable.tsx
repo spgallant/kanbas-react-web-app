@@ -1,6 +1,7 @@
 import {useParams} from "react-router";
 import * as db from "../../Database";
 
+
 export default function StudentTable() {
     const {cid, aid} = useParams();
     const assignments = db.assignments;
@@ -18,7 +19,7 @@ export default function StudentTable() {
     const mappedUsers = userEnrollments.map(enrollment => users.find(user => user._id === enrollment.user));
 
     // Grades for student for assignment (format as fn to take inputs at correct nest level)
-    const getGrades = (userId: String, assignmentId: String) => {
+    const getGrades = (userId: string, assignmentId: string) => {
         const singleGrade = grades.find(grade => grade.student === userId && grade.assignment === assignmentId);
         return singleGrade ? `${singleGrade.grade}%` : "N/A";
     };
