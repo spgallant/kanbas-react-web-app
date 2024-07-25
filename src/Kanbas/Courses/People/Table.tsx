@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as client from "./client";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import PeopleDetails from "./Details";
+import { FaPlus } from "react-icons/fa";
 
 export default function PeopleTable() {
   const [users, setUsers] = useState<any[]>([]); // user constant and mutator
@@ -11,6 +12,20 @@ export default function PeopleTable() {
   const [name, setName] = useState(""); // add name constant w/ mutator
 
   const { cid } = useParams(); //parse cid and uid
+
+  const createUser = async () => {
+    const user = await client.createUser({
+      firstName: "New",
+      lastName: `User${users.length + 1}`,
+      username: `newuser${Date.now()}`,
+      password: "password123",
+      section: "S101",
+      email: `User${users.length + 1}@gmail.com`,
+      role: "STUDENT",
+    });
+    setUsers([...users, user]);
+  };
+
 
   const filterUsersByRole = async (role: string) => { //take in the role
     setRole(role); //mutate role constant to inputted role
@@ -50,6 +65,12 @@ export default function PeopleTable() {
   
   return (
     <div id="wd-people-table">
+
+      <button onClick={createUser} className="float-end btn btn-danger wd-add-people">
+        <FaPlus className="me-2" />
+        People
+      </button>
+
 
       <input onChange={(e) => filterUsersByName(e.target.value)} placeholder="Search people"
             className="form-control float-start w-25 me-2 wd-filter-by-name" 

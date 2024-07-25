@@ -18,6 +18,9 @@ export default function PeopleDetails({ fetchUsers }:
     const [name, setName] = useState("");
     const [editing, setEditing] = useState(false);
 
+    const [email, setEmail] = useState("");
+    const [role, setRole] = useState("");
+
 
     const deleteUser = async (uid: string) => {
         await client.deleteUser(uid); // delete user based on uid
@@ -30,7 +33,7 @@ export default function PeopleDetails({ fetchUsers }:
 
     const saveUser = async () => {
         const [firstName, lastName] = name.split(" ");
-        const updatedUser = { ...user, firstName, lastName };
+        const updatedUser = { ...user, firstName, lastName, email, role };
         await client.updateUser(updatedUser);
         setUser(updatedUser);
         setEditing(false);
@@ -45,6 +48,11 @@ export default function PeopleDetails({ fetchUsers }:
 
         const user = await client.findUserById(uid); //else set user constant to user pulled from server via their id
         setUser(user);
+
+        // below added in debug
+        setName(`${user.firstName} ${user.lastName}`);
+        setEmail(user.email || "");
+        setRole(user.role || "");
     };
 
     useEffect(() => {
@@ -75,9 +83,11 @@ export default function PeopleDetails({ fetchUsers }:
             {!editing && (
                 <FaPencil onClick={() => setEditing(true)}
                 className="float-end fs-5 mt-2 wd-edit" /> )}
+
             {editing && (
                 <FaCheck onClick={() => saveUser()}
                 className="float-end fs-5 mt-2 me-2 wd-save" /> )}
+
             {!editing && (
                 <div className="wd-name"
                 onClick={() => setEditing(true)}>
@@ -92,12 +102,48 @@ export default function PeopleDetails({ fetchUsers }:
                 onKeyDown={(e) => {
                 if (e.key === "Enter") { saveUser(); }}}
             />
-        )}
-
-            
+            )}
+   
         </div>
 
-        <b>Roles:</b>           <span className="wd-roles">         {user.role}         </span> <br />
+            
+
+            <b>Roles:</b> 
+                {!editing && (
+                    <span className="wd-roles">{user.role}</span>
+                )}
+               
+               {user && editing && (
+                <select
+                    className="form-select w-50 mt-2"
+                    defaultValue={user.role}
+                    onChange={(e) => setRole(e.target.value)}
+                >
+                    <option value="STUDENT">Student</option>
+                    <option value="FACULTY">Faculty</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+                )}
+                <br />
+
+            
+            
+            <b>Email:</b> 
+            {!editing && (
+                <span className="wd-email">{user.email}</span>
+            )}
+
+            {user && editing && (
+                <input
+                type="email"
+                className="form-control w-50 mt-2"
+                defaultValue={user.email}
+                onChange={(e) => setEmail(e.target.value)}
+                />
+            )}<br />
+
+
+      
         <b>Login ID:</b>        <span className="wd-login-id">      {user.loginId}      </span> <br />
         <b>Section:</b>         <span className="wd-section">       {user.section}      </span> <br />
         <b>Total Activity:</b>  <span className="wd-total-activity">{user.totalActivity}</span> 
