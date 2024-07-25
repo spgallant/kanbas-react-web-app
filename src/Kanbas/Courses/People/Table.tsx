@@ -10,7 +10,7 @@ export default function PeopleTable() {
 
   const [name, setName] = useState(""); // add name constant w/ mutator
 
-
+  const { cid } = useParams(); //parse cid and uid
 
   const filterUsersByRole = async (role: string) => { //take in the role
     setRole(role); //mutate role constant to inputted role
@@ -39,6 +39,7 @@ export default function PeopleTable() {
 
   const fetchUsers = async () => {
     const users = await client.findAllUsers();
+    console.log('Fetched users:', users);
     setUsers(users);
   };
 
@@ -68,22 +69,25 @@ export default function PeopleTable() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user: any) => (
-            <tr key={user._id}>
-              <td className="wd-full-name text-nowrap">
-                
-                <Link to={`/Kanbas/Courses/People/${user._id}`} className="wd-user-link">
-                  <span className="wd-first-name">{user.firstName}</span>
-                  <span className="wd-last-name"> {user.lastName}</span>
-                </Link>
-              </td>
-              <td className="wd-login-id">{user.loginId}</td>
-              <td className="wd-section">{user.section}</td>
-              <td className="wd-role">{user.role}</td>
-              <td className="wd-last-activity">{user.lastActivity}</td>
-              <td className="wd-total-activity">{user.totalActivity}</td>
-            </tr>
-          ))}
+          {users.map((user: any) => {
+            console.log('User ID:', user._id); // Debugging step
+            return (
+              <tr key={user._id}>
+                <td className="wd-full-name text-nowrap">
+                  
+                  <Link to={`/Kanbas/Courses/${cid}/People/${user._id}`} className="wd-user-link">
+                    <span className="wd-first-name">{user.firstName}</span>
+                    <span className="wd-last-name"> {user.lastName}</span>
+                  </Link>
+                </td>
+                <td className="wd-login-id">{user.loginId}</td>
+                <td className="wd-section">{user.section}</td>
+                <td className="wd-role">{user.role}</td>
+                <td className="wd-last-activity">{user.lastActivity}</td>
+                <td className="wd-total-activity">{user.totalActivity}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
 
