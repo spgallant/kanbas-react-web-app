@@ -13,6 +13,7 @@ export default function PeopleTable() {
 
   const { cid } = useParams(); //parse cid and uid
 
+  //create user with defaults
   const createUser = async () => {
     const user = await client.createUser({
       firstName: "New",
@@ -26,6 +27,7 @@ export default function PeopleTable() {
     setUsers([...users, user]);
   };
 
+  
 
   const filterUsersByRole = async (role: string) => { //take in the role
     setRole(role); //mutate role constant to inputted role
