@@ -9,6 +9,7 @@ const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 const MODULES_API = `${REMOTE_SERVER}/api/modules`;
 
 
+// UPDATE (unchanged for mongo)
 // update a module with PUT
 // embeds module id in thh path and updates http body w/ info
 export const updateModule = async (module: any) => {
@@ -18,6 +19,7 @@ export const updateModule = async (module: any) => {
 };
   
 
+// DELETE (unchanged for Mongo)
 // delete a module with DELETE
 // sends HTTP DELETE request to server encoding module's id path
 export const deleteModule = async (moduleId: string) => {
@@ -28,16 +30,19 @@ export const deleteModule = async (moduleId: string) => {
 };
 
 
-
+// CREATE (unchanged for Mongo)
 // create new module w/ POST
 // new module in body and encode courseID in path (for server)
 // response data from server contains the new module; append new mod to cached modules in reducer
 export const createModule = async (courseId: string, module: any) => {
     const response = await axios.post( `${COURSES_API}/${courseId}/modules`, module );
+    // console.log("Returned Module data from server in client.ts: ", response.data);
     return response.data;
   };
   
 
+
+// FIND - READ (unchanged for Mongo)
 // from there, find route for modules (modules tied to a course)
 // find with GET
 export const findModulesForCourse = async (courseId: string) => {

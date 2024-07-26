@@ -28,6 +28,7 @@ export default function Modules() {
     // update module by invoking updateModule from client.ts with module info passed
     const saveModule = async (module: any) => {
       const status = await client.updateModule(module); //updates server
+      
       dispatch(updateModule(module)); //updates reducer
     };
   
@@ -45,6 +46,7 @@ export default function Modules() {
     //    to reducer's state variable
     const createModule = async (module: any) => {
       const newModule = await client.createModule(cid as string, module);
+      // console.log("Returned newModule data from server in index.tsx: ", newModule);
       dispatch(addModule(newModule));
     };  
 

@@ -23,7 +23,8 @@ export default function Kanbas() {
     const [courses, setCourses] = useState<any[]>([]); //change to any instead of local db reference
 
     const [course, setCourse] = useState<any>({
-      _id: "1234", name: "New Course", number: "New Number",
+      // _id: "1234", 
+      name: "New Course", number: "New Number",
       startDate: "2023-09-10", endDate: "2023-12-15", imageName: "reactjs.jpg",
       description: "New Description",
     });
@@ -61,7 +62,8 @@ export default function Kanbas() {
   
     // fetch all courses wtih GET
     const fetchCourses = async () => {
-      const courses = await client.fetchAllCourses();
+      // const courses = await client.fetchAllCourses();
+      const courses = await client.findAllCourses();
       setCourses(courses);
     };
 

@@ -43,7 +43,7 @@ export default function Dashboard(
     //   );
     // };
   
-  
+    console.log("Courses array:", courses);
 
 
 

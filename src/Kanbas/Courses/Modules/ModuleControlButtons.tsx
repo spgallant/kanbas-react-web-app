@@ -9,7 +9,7 @@ export default function ModuleControlButtons(
   { moduleId, deleteModule, editModule }: { moduleId: string; deleteModule: (moduleId: string) => void;
     editModule: (moduleId: string) => void } ) {
 
-  console.log(moduleId)
+  console.log("ModuleId passed to ModuleControlButtons", moduleId)
   return (
     <div className="float-end">
       <FaPencil onClick={() => editModule(moduleId)} className="text-primary me-3" />
