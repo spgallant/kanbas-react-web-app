@@ -102,7 +102,7 @@ export default function PeopleDetails({ fetchUsers }:
                 onKeyDown={(e) => {
                 if (e.key === "Enter") { saveUser(); }}}
             />
-            )}
+            )} <br/>
    
         </div>
 
@@ -110,7 +110,7 @@ export default function PeopleDetails({ fetchUsers }:
 
             <b>Roles:</b> 
                 {!editing && (
-                    <span className="wd-roles">{user.role}</span>
+                    <span className="wd-roles"> {user.role}</span>
                 )}
                
                {user && editing && (
@@ -130,7 +130,7 @@ export default function PeopleDetails({ fetchUsers }:
             
             <b>Email:</b> 
             {!editing && (
-                <span className="wd-email">{user.email}</span>
+                <span className="wd-email"> {user.email}</span>
             )}
 
             {user && editing && (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as client from "./client";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import PeopleDetails from "./Details";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaUserCircle } from "react-icons/fa";
 
 export default function PeopleTable() {
   const [users, setUsers] = useState<any[]>([]); // user constant and mutator
@@ -23,6 +23,7 @@ export default function PeopleTable() {
       section: "S101",
       email: `User${users.length + 1}@gmail.com`,
       role: "STUDENT",
+ 
     });
     setUsers([...users, user]);
   };
@@ -98,7 +99,9 @@ export default function PeopleTable() {
               <tr key={user._id}>
                 <td className="wd-full-name text-nowrap">
                   
-                  <Link to={`/Kanbas/Courses/${cid}/People/${user._id}`} className="wd-user-link">
+                  <FaUserCircle style={{ fontSize: '2rem'}} className="wd-profile-icon me-2 text-secondary" />
+                  <Link to={`/Kanbas/Courses/${cid}/People/${user._id}`} className="wd-user-link text-danger">
+                    
                     <span className="wd-first-name">{user.firstName}</span>
                     <span className="wd-last-name"> {user.lastName}</span>
                   </Link>

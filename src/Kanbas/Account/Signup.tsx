@@ -5,7 +5,18 @@ import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./reducer";
 
 export default function Signup() {
-  const [user, setUser] = useState<any>({});
+  const [user, setUser] = useState<any>({
+    firstName: "New",
+    lastName: "User",
+    email: `User${Date.now()}@gmail.com`,
+    section: "S101",
+    role: "STUDENT",
+  });
+
+
+
+
+
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const dispatch = useDispatch();
